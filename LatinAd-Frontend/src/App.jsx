@@ -1,18 +1,28 @@
+import React from 'react';
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import  { crearPantalla, getListar } from './linker/CallApi'
+import Hero from './pages/hero';
+import Login from './pages/login';
+import Dashboard from './pages/dashboard';
+import Edit from './pages/edit';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-     <h1>
-      Challenge Latin AD
-     </h1>
-         </>
+      <h1>
+
+      </h1>
+      <Routes>
+          <Route path="/" element={<Hero/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/edit" element={<Edit/>} />
+      </Routes>
+    </>
   )
 }
 
