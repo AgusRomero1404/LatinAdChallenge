@@ -13,9 +13,6 @@ function App() {
 
   return (
     <>
-      <h1>
-
-      </h1>
       <Routes>
           <Route path="/" element={<Hero/>} />
           <Route path="/login" element={<Login/>} />

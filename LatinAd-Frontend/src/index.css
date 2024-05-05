@@ -1,68 +1,69 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+    font-family: 'Roboto Mono';
+    font-size: 18px;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.hero{
+    position: fixed; 
+    width: 100%;
+    height: 100%; 
+    background-image:url(assets/panel.jpg);
+    color:white;
+    background-size: 100%;
+    background-position: center center;
+    background-position-y: -250px;
+    background-repeat: no-repeat;
+    background-attachment: fixed
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .hero_container {
+    width: 90%;
+    height: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    perspective: 15000px;
+    perspective-origin: top;
   }
-  a:hover {
-    color: #747bff;
+
+  .hero_container .hero_info{
+    border-radius: 2em;
+    padding: 1.5em;
+    
+    transform: rotateX(50deg) rotateY(17.5deg) rotate(2.5deg);
+    font-size: 3rem;
+    color: black;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .hero_container .hero_info h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
-}
+
+  .hero_container .hero_info h2{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero_container .hero_info p {
+    font-size: 1.2rem;
+    max-width: 60%;
+  }
+  .hero_container .hero_info .a{
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    border-radius: 0.8em;
+    padding: 0.5em 2em;
+    margin-top: 2rem;
+    color: #80aaff
+  }
