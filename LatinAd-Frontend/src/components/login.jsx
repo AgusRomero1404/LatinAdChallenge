@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import CircularProgress from '@mui/material/CircularProgress';
 import "../index.css";
 import { useForm } from "react-hook-form";
 import { postLogin } from "../linker/CallApi";
@@ -14,8 +15,10 @@ function Login() {
   } = useForm();
   const [showError, setShowError] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const [loading, setLoading] = useState (false);
   const onSubmit = async (data) => {
     try {
+      setLoading(true); // Activar el loading
       const response = await postLogin(data);
       sessionStorage.setItem("Bearer Token", response.data.token);
       console.log(response);
@@ -23,6 +26,9 @@ function Login() {
 
     } catch (error) {
       setShowError(true);
+    }
+    finally{
+      setLoading(false); // Activar el loading
     }
   };
 
@@ -72,7 +78,11 @@ function Login() {
             </div>
           </form>
         </div>
-      </Container>
+      </Container> 
+      {loading && <Box sx={{ display: 'flex' }}>
+      <CircularProgress />
+    </Box>}
+
     </div>
   );
 }

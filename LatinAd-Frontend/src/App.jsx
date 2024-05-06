@@ -8,9 +8,10 @@ import Hero from './pages/hero';
 import Login from './pages/userLogin';
 import Dashboard from './pages/dashboard';
 import Edit from './pages/edit';
+import Create from './pages/Create';
 
 function App() {
-
+//cuando tengamos la logica del navbar terminada, debemos agregar una redenrizacion condicional, en la que sí existe el valor key del token en la sessionStore, va a renderizarse el appBar
   return (
     <>
       <Routes>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/userLogin" element={<Login/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/edit" element={<Edit/>} />
+          <Route path="/create" element={<Create/>} />
       </Routes>
     </>
   )
