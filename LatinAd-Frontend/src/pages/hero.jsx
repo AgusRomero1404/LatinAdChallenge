@@ -15,7 +15,7 @@ function Hero() {
               commodi impedit amet nisi reiciendis. Eius aperiam eaque quas
               fugit ut molestias voluptate iusto fuga.
             </p>
-            <Link className="a" to = "/login">
+            <Link className="a" to = "/userLogin">
              Login
             </Link>
           </div>
