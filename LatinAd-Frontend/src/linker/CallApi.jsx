@@ -11,18 +11,19 @@ export async function postLogin(body) {
   }
 }
 
-export async function getListar(pageSize, offset, token) {
+export async function getListar(pageSize, offset, token, type) {
   try {
-    const response = await axios.get(`${urlBase}/display`, {
+    const response = await axios.get(`${urlBase}/display?`, {
       params: {
         pageSize: pageSize,
         offset: offset,
+        type: type
       },
       headers: {
-        Authorization: "Bearer MTUtcm9tZXJvYWd1c3RpbjE0MDRAZ21haWwuY29t",
+        Authorization:`Bearer ${token}`,
       },
     });
-    console.log(response.data);
+    console.log(response);
     return response;
   } catch (error) {
     console.error("El error en listar es: ", error);
