@@ -6,6 +6,7 @@ import "../index.css";
 import { useForm } from "react-hook-form";
 import { postLogin } from "../linker/CallApi";
 import { Navigate } from 'react-router-dom';
+import { Button } from "@mui/material";
 
 function Login() {
   const {
@@ -50,7 +51,6 @@ function Login() {
                   id="email"
                   name="email"
                   type="text"
-                  autoComplete="email"
                   className="loginSectionInput"
                   {...register("email", { required: true })}
                 ></input>
@@ -64,7 +64,6 @@ function Login() {
                   id="password"
                   name="password"
                   type="password"
-                  autoComplete="current-password"
                   className="loginSectionInput"
                   {...register("password", { required: true })}
                 ></input>
@@ -72,14 +71,23 @@ function Login() {
               </div>
             </div>
             <div className="loginSection_div_">
-              <button type="submit" className="loginSectionButton">
+              <Button type="submit" variant="contained" className="loginSectionButton">
                 Ingresar
-              </button>
+              </Button>
             </div>
           </form>
         </div>
       </Container> 
-      {loading && <Box sx={{ display: 'flex' }}>
+      {loading && <Box sx={{       
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
       <CircularProgress />
     </Box>}
 

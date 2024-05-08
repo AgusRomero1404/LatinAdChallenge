@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Box, InputAdornment, Button } from '@mui/material';
 import { editPantalla } from '../linker/CallApi';
+import { enqueueSnackbar } from 'notistack';
 
 function EditForm(selectedItem) {
   const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm(); 
@@ -16,6 +17,7 @@ function EditForm(selectedItem) {
     }
     finally{
       selectedItem.handleClose()
+      enqueueSnackbar("Pantalla Editada con exito", {variant:"success"})
     }
      
   };

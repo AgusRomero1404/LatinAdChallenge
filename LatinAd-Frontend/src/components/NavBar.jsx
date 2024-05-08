@@ -1,4 +1,4 @@
-import { AppBar, Button, Drawer, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Button, Drawer, IconButton, Toolbar, Tooltip } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -17,9 +17,11 @@ function NavBar() {
     <>
       <AppBar position="static">
         <Toolbar sx={{ flexDirection: "row-reverse" }}>
-          <IconButton color="inherit" size="large" onClick = {handleLogout}>
+          <Tooltip title="Log out">
+            <IconButton color="inherit" size="large" onClick = {handleLogout}>
             <LogoutIcon />
           </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
     </>
