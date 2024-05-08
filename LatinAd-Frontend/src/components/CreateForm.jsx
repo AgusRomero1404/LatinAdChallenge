@@ -1,12 +1,17 @@
   import React from 'react';
   import { useForm } from 'react-hook-form';
   import { FormControl, InputLabel, MenuItem, Select, TextField, Box, FormHelperText, Button } from '@mui/material';
-  import { getListar, postPantalla } from '../linker/CallApi';
+  import { postPantalla } from '../linker/CallApi';
+  import { useSnackbar } from 'notistack';
+
 
   function CreateForm(handleClose) {
     
     const { register, handleSubmit, formState: { errors } } = useForm();
     const token = sessionStorage.getItem("Bearer Token");
+    const { enqueueSnackbar } = useSnackbar();
+    
+
     const onSubmit = async (formData) => {
       try {
         const response = await postPantalla(formData, token);
@@ -15,6 +20,8 @@
         console.log("el error del post es", error);
       } finally{
         handleClose.handleClose();
+        handleSuccess();
+        enqueueSnackbar("Pantalla Creada con exito", {variant:"success"})
       }
     };
 

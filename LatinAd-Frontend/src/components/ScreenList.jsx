@@ -34,6 +34,7 @@ import EditForm from "./EditForm";
 import ViewForm from "./ViewForm";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import { useSnackbar } from 'notistack';
 
 function ScreenList() {
   const [pantallas, setPantallas] = useState([]);
@@ -46,6 +47,7 @@ function ScreenList() {
   const [utilityType, setUtilityType] = useState("");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const { enqueueSnackbar } = useSnackbar();
 
   const token = sessionStorage.getItem("Bearer Token");
   const getPantallas = async (pageSize, offset, type) => {
@@ -60,6 +62,7 @@ function ScreenList() {
       setLoading(false);
     }
   };
+
 
   const handlePageChange = (event, page) => {
     let off = (page - 1) * pageSize;
@@ -86,6 +89,8 @@ function ScreenList() {
       await getPantallas(pageSize, offset, type);
     } catch (error) {
       console.log("error al borrar: ", error);
+    } finally {
+      enqueueSnackbar("Pantalla eliminada con exito", {variant:'info'})
     }
   };
 
