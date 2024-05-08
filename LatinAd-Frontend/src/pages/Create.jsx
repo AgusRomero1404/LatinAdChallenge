@@ -1,8 +1,10 @@
 import React from 'react'
-
+import ScreenForm from '../components/CreateForm'
 function Create() {
   return (
-    <div>create</div>
+    <div>create
+      <ScreenForm></ScreenForm>
+    </div>
   )
 }
 

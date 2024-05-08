@@ -59,7 +59,7 @@ export async function editPantalla(body, token, id) {
   try {
     const response = await axios.put(`${urlBase}/display/${id}`, body, {
       headers: {
-        Authorization: `Bearer${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     return response;
@@ -72,7 +72,7 @@ export async function deletePantalla(id, token) {
   try {
     const response = await axios.delete(`${urlBase}/display/${id}`, {
       headers: {
-        Authorization: `Bearer${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
   } catch (error) {
