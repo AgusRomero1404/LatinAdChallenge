@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { TextField, FormControl, InputLabel, MenuItem, Select, Box, InputAdornment, Button } from '@mui/material';
 import { editPantalla } from '../linker/CallApi';
 
-function EditForm(selectedItem, handleClose) {
+function EditForm(selectedItem) {
   const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm(); 
   const token = sessionStorage.getItem("Bearer Token"); 
 
@@ -41,7 +41,7 @@ useEffect(() => {
       variant='outlined'
       label='Nombre'
       defaultValue={selectedItem.data.name}
-      sx={{ marginBottom: 2, marginTop: 2 }} // Agregar margen inferior
+      sx={{ marginBottom: 2, marginTop: 2 }} 
     />
     <TextField
       {...register('description')}
@@ -49,7 +49,7 @@ useEffect(() => {
       variant='outlined'
       label='Descripción'
       defaultValue={selectedItem.data.description}
-      sx={{ marginBottom: 2, marginTop: 2 }} // Agregar margen inferior
+      sx={{ marginBottom: 2, marginTop: 2 }} 
     />
     <TextField
       {...register('price_per_day', {})}
@@ -95,7 +95,7 @@ useEffect(() => {
         <MenuItem value={"indoor"}>Indoor</MenuItem>
       </Select>
     </FormControl>
-    <Button type="submit" variant="contained" style={{ width: '100%' }}>Crear</Button>
+    <Button type="submit" variant="contained" style={{ width: '100%' }}>Editar</Button>
   </form>
 </Box>
   );

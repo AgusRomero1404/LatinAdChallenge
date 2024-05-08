@@ -31,7 +31,7 @@ function ViewForm( selectedItem ) {
           label='Precio por día'
           value={selectedItem.data.price_per_day}
           InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>, // Adorno inicial con el símbolo $
+            startAdornment: <InputAdornment position="start">$</InputAdornment>, 
             readOnly: true,
           }}
           sx={{ marginBottom: 2, marginTop: 2 }}
@@ -42,7 +42,7 @@ function ViewForm( selectedItem ) {
           label='Ancho'
           value={selectedItem.data.resolution_width}
           InputProps={{
-            startAdornment: <InputAdornment position="start">px</InputAdornment>, // Adorno inicial con el símbolo $
+            startAdornment: <InputAdornment position="start">px</InputAdornment>,
             readOnly: true,
           }}
           sx={{ marginBottom: 2, marginTop: 2 }}
@@ -53,7 +53,7 @@ function ViewForm( selectedItem ) {
           label='Largo'
           value={selectedItem.data.resolution_height}
           InputProps={{
-            startAdornment: <InputAdornment position="start">px</InputAdornment>, // Adorno inicial con el símbolo $
+            startAdornment: <InputAdornment position="start">px</InputAdornment>, 
             readOnly: true,
           }}
           sx={{ marginBottom: 2, marginTop: 2 }}

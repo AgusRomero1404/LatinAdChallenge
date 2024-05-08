@@ -14,17 +14,15 @@ html {
     position: fixed; 
     width: 100%;
     height: 100%; 
-    background-image:url(assets/panel.jpg);
+    background-image:url(assets/panel1.jpg);
     color:white;
-    background-size: 100%;
-    background-position: center center;
-    background-position-y: -250px;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed
 }
   .hero_container {
-    width: 90%;
-    height: 100%;
+    width: 50vw;
+    height: 50vh;
     max-width: 1100px;
     margin: 0 auto;
     display: flex;
@@ -34,25 +32,12 @@ html {
     perspective: 15000px;
     perspective-origin: top;
   }
-
-  .hero_container .hero_info{
-    border-radius: 2em;
-    padding: 1.5em;
-    
-    transform: rotateX(50deg) rotateY(17.5deg) rotate(2.5deg);
-    font-size: 3rem;
-    color: black;
-  }
-
-  .hero_container .hero_info h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero_container .hero_info h2{
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
+.hero_info{
+    position: sticky;
+    top: 20vh;
+    left: 40vw;
+    font-size: calc(0.8vw + 0.6vh)
+}
 
   .hero_container .hero_info p {
     font-size: 1.2rem;
@@ -115,21 +100,33 @@ html {
   .loginSectionButton {
     width: 100%;
     justify-content: center;
-    border-radius: 0.375rem; /* 6px */
-    padding: 0.375rem 0.75rem; /* 6px 12px */
-    font-size: 0.875rem; /* 14px */
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.75rem; 
+    font-size: 0.875rem; 
     font-weight: 600;
     transition: all 0.2s ease-in-out;
   }
   .loginSectionBackground{
+    position: relative;
     width: 100%;
     height: 100%; 
-    background-image:url(assets/panel.jpg);
+    min-height: 100vh; 
+    display: flex;
+    align-items: center;
+  }
+
+  .loginSectionBackground::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/panel1.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh; 
-    display: flex;
-    align-items: center;
+    filter: blur(10px);
+    z-index: -1; 
   }

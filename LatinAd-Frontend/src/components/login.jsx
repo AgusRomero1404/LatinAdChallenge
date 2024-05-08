@@ -18,7 +18,7 @@ function Login() {
   const [loading, setLoading] = useState (false);
   const onSubmit = async (data) => {
     try {
-      setLoading(true); // Activar el loading
+      setLoading(true); 
       const response = await postLogin(data);
       sessionStorage.setItem("Bearer Token", response.data.token);
       console.log(response);
@@ -28,7 +28,7 @@ function Login() {
       setShowError(true);
     }
     finally{
-      setLoading(false); // Activar el loading
+      setLoading(false); 
     }
   };
 

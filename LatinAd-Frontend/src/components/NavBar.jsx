@@ -1,43 +1,29 @@
-import React, { useState } from 'react'
-import AppBarList from './AppBarList'
-import { AppBar, Button, Drawer, IconButton, Toolbar } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu';
-import LogoutIcon from '@mui/icons-material/Logout';
+import { AppBar, Button, Drawer, IconButton, Toolbar } from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { useState } from "react";
+import { Navigate } from "react-router-dom";
 
 function NavBar() {
-  const [showMenu, setShowMenu] = useState(false);
-
+  const [redirect, setRedirect] = useState(false);
+  const handleLogout = () => {
+    sessionStorage.removeItem("Bearer Token")
+    setRedirect(true)
+  }
+  if (redirect) {
+    return <Navigate to="/" />;
+  }
+  
   return (
     <>
-    <AppBar position='static'>
-      <Toolbar sx={{justifyContent: 'space-between'}}>
-        <IconButton
-        color='inherit'
-        size="large"
-        onClick={() => setShowMenu (true)}>
-          <MenuIcon />
-        </IconButton>
-          <IconButton 
-                color='inherit'
-                size="large"
-          >
-             <LogoutIcon/>
+      <AppBar position="static">
+        <Toolbar sx={{ flexDirection: "row-reverse" }}>
+          <IconButton color="inherit" size="large" onClick = {handleLogout}>
+            <LogoutIcon />
           </IconButton>
-      </Toolbar>
-    </AppBar>
-    <Drawer
-    open={showMenu}
-    anchor="left"
-    onClose={() => setShowMenu(false)}
-    >
-       <AppBarList>
-
-      </AppBarList>
-    </Drawer>
-
+        </Toolbar>
+      </AppBar>
     </>
- 
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

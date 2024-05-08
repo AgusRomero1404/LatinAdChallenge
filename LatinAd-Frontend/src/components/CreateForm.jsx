@@ -1,13 +1,12 @@
   import React from 'react';
   import { useForm } from 'react-hook-form';
   import { FormControl, InputLabel, MenuItem, Select, TextField, Box, FormHelperText, Button } from '@mui/material';
-  import { postPantalla } from '../linker/CallApi';
+  import { getListar, postPantalla } from '../linker/CallApi';
 
   function CreateForm(handleClose) {
-    console.log("handleClose es", handleClose)
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
     const token = sessionStorage.getItem("Bearer Token");
-
     const onSubmit = async (formData) => {
       try {
         const response = await postPantalla(formData, token);

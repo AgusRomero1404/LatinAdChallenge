@@ -6,7 +6,9 @@ function Dashboard() {
   return (
   <>
     <NavBar/>
+    <div className='loginSectionBackground'>
     <ScreenList />
+    </div>
   </>
   )
 }
