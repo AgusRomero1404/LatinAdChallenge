@@ -11,12 +11,9 @@ function App() {
     <>
    
       <Routes>
-      
-          <Route path="/" element={<Hero/>} />
+          <Route path="/LatinAdChallenge" element={<Hero/>} />
           <Route path="/userLogin" element={<Login/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
-        
-
       </Routes>
       
     </>

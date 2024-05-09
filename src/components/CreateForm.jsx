@@ -20,7 +20,6 @@
         console.log("el error del post es", error);
       } finally{
         handleClose.handleClose();
-        handleSuccess();
         enqueueSnackbar("Pantalla Creada con exito", {variant:"success"})
       }
     };
