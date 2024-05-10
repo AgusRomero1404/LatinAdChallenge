@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { postLogin } from "../linker/CallApi";
 import { Navigate } from 'react-router-dom';
 import { Button } from "@mui/material";
+import { enqueueSnackbar } from "notistack";
 
 function Login() {
   const {
@@ -24,8 +25,8 @@ function Login() {
       sessionStorage.setItem("Bearer Token", response.data.token);
       console.log(response);
       setRedirect(true)
-
     } catch (error) {
+      enqueueSnackbar("Contraseña/Email incorrecto", {variant:"error"})
       setShowError(true);
     }
     finally{
@@ -67,7 +68,7 @@ function Login() {
                   className="loginSectionInput"
                   {...register("password", { required: true })}
                 ></input>
-                {errors.password && <span>Usuario es requerido</span>}
+                {errors.password && <span>Contraseña  es requerido</span>}
               </div>
             </div>
             <div className="loginSection_div_">
